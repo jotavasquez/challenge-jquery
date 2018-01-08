@@ -3,6 +3,7 @@ $(document).ready( function(){
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	printNews();
 	renderHighlightedRecipes(recipesArray);
+	
 });
 
 //funcion etapa 2
@@ -15,6 +16,7 @@ function printNews() {
 * marcado el atributo "highlighted" como TRUE
 * Etapa 3
 */
+
 function renderHighlightedRecipes(recipesArray) {
 	for (var i = 0; i < recipesArray.length; i++) {
 			if (recipesArray[i].highlighted === true){
@@ -31,9 +33,30 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 
-
 function renderRecipe(recipe) {
+	var title = recipe.title
 	console.log('Voy a pintar la receta: ', recipe);
+	console.log(recipe.source.name);
+	console.log(recipe.source.url);
+	var img_i ="";
+	/*Paso 4*/
+	$("#list-recipes").append(
+		'<a class="item-recipe" href="#">' +
+			'<span class="attribution">' +
+		'<span class="title-recipe">' + recipe.title + 
+				'</span>' +
+				'<span class="metadata-recipe">' +
+					'<span class="author-recipe">' + recipe.source.name + 
+					'</span>' +
+					'<span class="bookmarks-recipe">' +
+						'<span class="icon-bookmark">' +
+						'</span>' +
+					'</span>' +
+				'</span>' +
+			'</span>' +
+			'<img src= "img/recipes/320x350/'+ recipe.name + '.jpg"/>' +
+		'</a>'
+	);
 }
 
 /*
@@ -51,3 +74,4 @@ function renderActivities(activitiesArray) {
 function renderActivity(recipe) {
 	console.log('Activities: ', activitiesArray);
 }
+
