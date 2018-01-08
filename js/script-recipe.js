@@ -22,4 +22,11 @@ $(document).ready(function () {
         $(this).addClass('active');
         $('.js-show-recipe').removeClass('active');
     })
+
+    //Etapa 10 Función para la flecha izquierda superior
+    $('.js-back').click(function () {
+        console.log("back");
+        $('.js-back').attr('href', 'index.html');
+    })
+
 });
