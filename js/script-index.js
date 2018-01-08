@@ -1,10 +1,16 @@
 $(document).ready( function(){
-
+	$("#back-arrow").remove();
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-	$("#back-arrow").remove();
+	printNews();
 
 });
+
+//funcion etapa 2
+function printNews() {
+	$('#news > p').text('NUEVAS RECETAS');
+}
+
 
 
 /*
