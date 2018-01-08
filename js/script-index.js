@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$("#back-arrow").hide();
+	$("#back-arrow").remove();
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	printNews();
 	renderHighlightedRecipes(recipesArray);
@@ -79,12 +79,25 @@ function renderActivities(activitiesArray) {
 
 var activitiesArray = activities;
 function renderActivities(activitiesArray) {
-	if (activitiesArray.length < 0) {
-		console.log("tiene más de 0 objetos");
-		renderActivity(recipe);
-	} else {
+	if (activitiesArray.length === 0) {
 		console.log(" 0 objetos");
-		$('.wrapper-message').remove();
+		console.log(activitiesArray);
+	} else {
+		for (var i = 0; i < activitiesArray.length; i++) {
+			if (recipesArray[i].highlighted === true) {
+				renderActivity(activitiesArray[i]);
+				$('.wrapper-message').remove();
+			}
+		}
+
+
+		//$.each(activitiesArray, function (ind, elem) {
+		//	renderActivity("indice: " + ind + " nombre elemento: " + elem.recipeName);
+		//});
+
+		//console.log("tiene más de 0 objetos");
+		//console.log(activitiesArray);
+		//renderActivity(activitiesArray[i]);
 	}
 }
 
