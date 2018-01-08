@@ -6,7 +6,9 @@ $(document).ready(function () {
 	renderActivities(activitiesArray);
 });
 
-//funcion etapa 2
+/*
+*funcion etapa 2
+*/
 function printNews() {
 	$('#news > p').text('NUEVAS RECETAS');
 }
@@ -16,7 +18,6 @@ function printNews() {
 * marcado el atributo "highlighted" como TRUE
 * Etapa 3
 */
-
 function renderHighlightedRecipes(recipesArray) {
 	for (var i = 0; i < recipesArray.length; i++) {
 		if (recipesArray[i].highlighted === true) {
@@ -34,7 +35,9 @@ function renderHighlightedRecipes(recipesArray) {
 */
 function renderRecipe(recipe) {
 	console.log('Voy a pintar la receta: ', recipe);
-	/*Paso 4*/
+/*
+*etapa 4
+*/
 	$("#list-recipes").append(
 		'<a class="item-recipe" href="#">' +
 		'<span class="attribution">' +
@@ -54,10 +57,9 @@ function renderRecipe(recipe) {
 	);
 }
 
-/* Paso 5 */
+/* Etapa 5 */
 /*
 * Función que se encarga de pintar todas las actividades
-* ciclo for con each
 */
 
 /*
@@ -75,8 +77,10 @@ function renderActivities(activitiesArray) {
 		}
 	});
 }
-*/
 
+/*
+* Etapa 6
+*/
 var activitiesArray = activities;
 function renderActivities(activitiesArray) {
 	if (activitiesArray.length === 0) {
@@ -84,31 +88,10 @@ function renderActivities(activitiesArray) {
 		console.log(activitiesArray);
 	} else {
 		for (var i = 0; i < activitiesArray.length; i++) {
-				renderActivity(activitiesArray[i]);
 				$('.wrapper-message').remove();
-				var activity = activitiesArray[i];
-				$('.list-activities').append(
-					'<a href="#" class="item-activity">' +
-					'<span class="attribution">' +
-					'<span class="avatar">' +
-					'<img src="' + activity.userAvatar + '" class="image-avatar">' +
-					'</span>' +
-					'<span class="meta">' +
-					'<span class="author">' + activity.userName +
-					'</span>made' +
-					'<span class="recipe">' + activity.recipeName +
-					'</span>: ' + activity.text +
-					'<span class="location">&mdash;' + activity.place +
-					'</span>' +
-					'</span>' +
-					'</span>' +
-					'<div class="bg-image" style="background-image: url(' + activity.image + ');">' +
-					'</div>' +
-					'</a >'
-				);
+				//var activity = activitiesArray[i];
+				renderActivity(activitiesArray[i]);
 		}
-
-
 		//$.each(activitiesArray, function (ind, elem) {
 		//	renderActivity("indice: " + ind + " nombre elemento: " + elem.recipeName);
 		//});
@@ -133,11 +116,32 @@ function renderActivities(activitiesArray) {
  });
 }
 /*
+
 /*
 * Función que se encarga de pintar una actividad
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-activity.html"
+* Etapa 6
 */
 function renderActivity(recipe) {
 	console.log(recipe);
+	$('.list-activities').append(
+		'<a href="#" class="item-activity">' +
+		'<span class="attribution">' +
+		'<span class="avatar">' +
+		'<img src="' + recipe.userAvatar + '" class="image-avatar">' +
+		'</span>' +
+		'<span class="meta">' +
+		'<span class="author">' + recipe.userName +
+		'</span>made' +
+		'<span class="recipe">' + recipe.recipeName +
+		'</span>: ' + recipe.text +
+		'<span class="location">&mdash;' + recipe.place +
+		'</span>' +
+		'</span>' +
+		'</span>' +
+		'<div class="bg-image" style="background-image: url(' + recipe.image + ');">' +
+		'</div>' +
+		'</a >'
+	);
 }
