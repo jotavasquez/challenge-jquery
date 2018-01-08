@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 /*
-*funcion etapa 2
+*Etapa 2
 */
 function printNews() {
 	$('#news > p').text('NUEVAS RECETAS');
@@ -36,7 +36,7 @@ function renderHighlightedRecipes(recipesArray) {
 function renderRecipe(recipe) {
 	console.log('Voy a pintar la receta: ', recipe);
 /*
-*etapa 4
+* Etapa 4
 */
 	$("#list-recipes").append(
 		'<a class="item-recipe" href="#">' +
@@ -57,30 +57,11 @@ function renderRecipe(recipe) {
 	);
 }
 
-/* Etapa 5 */
 /*
+* Etapa 5
 * Función que se encarga de pintar todas las actividades
 */
 
-/*
-var activitiesArray = activities;
-function renderActivities(activitiesArray) {
-	$.each(activitiesArray, function (ind, elem) {
-		if (ind > 0){
-			console.log("tiene tres" + elem);
-			renderActivity(activitiesArray);
-		} else {
-			console.log("tiene cero");
-			$('.wrapper-message').hide();
-			//o remover? 
-			//$('.wrapper-message').remove();
-		}
-	});
-}
-
-/*
-* Etapa 6
-*/
 var activitiesArray = activities;
 function renderActivities(activitiesArray) {
 	if (activitiesArray.length === 0) {
@@ -89,39 +70,16 @@ function renderActivities(activitiesArray) {
 	} else {
 		for (var i = 0; i < activitiesArray.length; i++) {
 				$('.wrapper-message').remove();
-				//var activity = activitiesArray[i];
 				renderActivity(activitiesArray[i]);
 		}
-		//$.each(activitiesArray, function (ind, elem) {
-		//	renderActivity("indice: " + ind + " nombre elemento: " + elem.recipeName);
-		//});
-
-		//console.log("tiene más de 0 objetos");
-		//console.log(activitiesArray);
-		//renderActivity(activitiesArray[i]);
 	}
 }
 
 /*
- $.each(activitiesArray, function (ind, elem) {
-	   if (ind >= 0){
-	   renderActivity(activitiesArray);
-	   console.log("tiene " + ind + " objetos" + elem.recipeName);
-	   } else {
-		   console.log("no hay objetos");
-		   $('.wrapper-message').hide();
-		   //o remover?
-		   //$('.wrapper-message').remove();
-	   }
- });
-}
-/*
-
-/*
+* Etapa 6
 * Función que se encarga de pintar una actividad
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-activity.html"
-* Etapa 6
 */
 function renderActivity(recipe) {
 	console.log(recipe);
