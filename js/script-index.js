@@ -84,10 +84,28 @@ function renderActivities(activitiesArray) {
 		console.log(activitiesArray);
 	} else {
 		for (var i = 0; i < activitiesArray.length; i++) {
-			if (recipesArray[i].highlighted === true) {
 				renderActivity(activitiesArray[i]);
 				$('.wrapper-message').remove();
-			}
+				var activity = activitiesArray[i];
+				$('.list-activities').append(
+					'<a href="#" class="item-activity">' +
+					'<span class="attribution">' +
+					'<span class="avatar">' +
+					'<img src="' + activity.userAvatar + '" class="image-avatar">' +
+					'</span>' +
+					'<span class="meta">' +
+					'<span class="author">' + activity.userName +
+					'</span>made' +
+					'<span class="recipe">' + activity.recipeName +
+					'</span>: ' + activity.text +
+					'<span class="location">&mdash;' + activity.place +
+					'</span>' +
+					'</span>' +
+					'</span>' +
+					'<div class="bg-image" style="background-image: url(' + activity.image + ');">' +
+					'</div>' +
+					'</a >'
+				);
 		}
 
 
